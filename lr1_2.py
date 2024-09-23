@@ -8,14 +8,13 @@ def minmax_normalization_native(image_array):
     max_val = np.max(image_array)
     height, width = image_array.shape
 
-    # Массив для нормализованного изображения
+    
     normalized_image_array = np.zeros_like(image_array, dtype=np.float32)
 
 
     for i in range(height):
         for j in range(width):
             if max_val != min_val:
-                # Используем float для вычислений
                 normalized_image_array[i, j] = (255.0 * (image_array[i, j] - min_val) / (max_val - min_val))
             else:
                 normalized_image_array[i, j] = 0.0  # Если все значения одинаковые
